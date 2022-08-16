@@ -13,7 +13,7 @@
 		"build": "electron-builder build  --win --publish never",
         "deploy": "electron-builder build  --win --publish always"
 	},
-	"repository": "https://github.com/medr32/shablolapp",
+	"repository": "https://github.com/medr32/tweegeeapp",
 	"keywords": [
 		"عالم شبلول",
 		"شبلول",
@@ -35,7 +35,7 @@
 			{
 				"provider": "github",
 				"owner": "medr32",
-				"repo": "shablolapp"
+				"repo": "tweegeeapp"
 			}
 		],
 		"mac": {
