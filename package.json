@@ -1,0 +1,148 @@
+{
+	"name": "tweegee-world",
+	"version": "1.0.2",
+	"description": "tweegee world",
+	"productName": "Tweegee World - عالم شبلول",
+	"main": "main.js",
+	"scripts": {
+		"start": "electron .",
+		"dist": "electron-builder",
+		"package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+		"package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Cococlani\"",
+		"package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/icon.png --prune=true --out=release-builds",
+		"build": "electron-builder build  --win --publish never",
+        "deploy": "electron-builder build  --win --publish always"
+	},
+	"repository": "https://github.com/medr32/shablolapp",
+	"keywords": [
+		"عالم شبلول",
+		"شبلول",
+		"Tweege",
+		"Shablol",
+		"Tweege World - عالم شبلول"
+	],
+	"extraResources": [
+		{
+			"from": "./img/",
+			"to": "img",
+			"filter": [
+				"**/*"
+			]
+		}
+	],
+	"build": {
+		"publish": [
+			{
+				"provider": "github",
+				"owner": "medr32",
+				"repo": "shablolapp"
+			}
+		],
+		"mac": {
+			"asar": false,
+			"target": "dmg",
+			"category": "public.app-category.games",
+			"icon": "icons/macOS/mac_os_icon.icns",
+			"files": [
+				"**/*",
+				"!**/flash/{windows, linux}",
+				"!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+				"!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+				"!**/node_modules/*.d.ts",
+				"!**/node_modules/.bin",
+				"!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+				"!.editorconfig",
+				"!**/._*",
+				"!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes,.github}",
+				"!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+				"!**/{appveyor.yml,.travis.yml,circle.yml}",
+				"!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+			]
+		},
+		"dmg": {
+			"background": "background/macos_bg.png"
+		},
+		"linux": {
+			"asar": false,
+			"target": [
+				{
+					"target": "deb",
+					"arch": [
+						"x64",
+						"ia32"
+					]
+				},
+				{
+					"target": "AppImage",
+					"arch": [
+						"x64",
+						"ia32"
+					]
+				},
+				{
+					"target": "snap",
+					"arch": [
+						"x64"
+					]
+				}
+			],
+			"files": [
+				"**/*",
+				"!**/flash/{windows, mac}",
+				"!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+				"!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+				"!**/node_modules/*.d.ts",
+				"!**/node_modules/.bin",
+				"!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+				"!.editorconfig",
+				"!**/._*",
+				"!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes,.github,background}",
+				"!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+				"!**/{appveyor.yml,.travis.yml,circle.yml}",
+				"!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+			],
+			"icon": "icons/linux/"
+		},
+		"win": {
+			"asar": false,
+			"target": [
+				{
+					"target": "nsis",
+					"arch": [
+						"x64",
+						"ia32"
+					]
+				}
+			],
+			"files": [
+				"**/*",
+				"!**/flash/{linux,mac}",
+				"!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+				"!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+				"!**/node_modules/*.d.ts",
+				"!**/node_modules/.bin",
+				"!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+				"!.editorconfig",
+				"!**/._*",
+				"!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes,.github,background,icons}",
+				"!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+				"!**/{appveyor.yml,.travis.yml,circle.yml}",
+				"!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+			],
+			"icon": "icons/windows/icon.ico"
+		}
+	},
+	"author": "Jehad R. Khuzaie <Khujehad@gmail.net> (https://fb.com/techn7ical)",
+	"license": "CC0-1.0",
+	"devDependencies": {
+		"electron": "^11.5.0",
+		"electron-builder": "^22.11.7",
+		"electron-packager": "^15.3.0"
+	},
+	"dependencies": {
+		"discord-rpc": "^4.0.1",
+		"electron-updater": "^4.3.9",
+		"ini": ">=2.0.0",
+		"request": "*"
+	}
+}

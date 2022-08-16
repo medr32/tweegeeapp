@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>عالم شبلول | Tweegee World</title>
+    
+    <style>
+      /* Define the main wrapper style */
+      .LoaderWrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+
+        box-sizing: border-box;
+        background-color: rgb(2, 0, 0);
+      }
+
+      .LoaderContent {
+        color: white;
+		font-family: Arial;
+      }
+		.loader {
+		  border: 5px solid #f3f3f3; /* Light grey */
+		  border-top: 5px solid #3498db; /* Blue */
+		  border-radius: 50%;
+		  width: 50px;
+		  height: 50px;
+		  animation: spin 2s linear infinite;
+		  display: block;
+		}
+		@keyframes spin {
+		  0% { transform: rotate(0deg); }
+		  100% { transform: rotate(360deg); }
+		}
+	  
+    </style>
+  </head>
+  <body>
+    <style>
+      body {
+            display: flex;
+            justify-content: center;
+        }
+          
+        .ball {
+            width: 50px;
+            height: 50px;
+            
+            
+            
+            background-image: url(favicon.ico);
+            animation: bounce 0.5s;
+            animation-direction: alternate;
+            animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+            animation-iteration-count: infinite;
+        }
+          
+        @keyframes bounce {
+            from {
+                transform: translate3d(0, 0, 0);
+            }
+            to {
+                transform: translate3d(0, 100px, 0);
+            }
+        }
+        /* Prefix Support */
+          
+        ball {
+            -webkit-animation-name: bounce;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-direction: alternate;
+            -webkit-animation-timing-function: cubic-bezier(
+            .5, 0.05, 1, .5);
+            -webkit-animation-iteration-count: infinite;
+        }
+          
+        @-webkit-keyframes bounce {
+            from {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+            to {
+                -webkit-transform: translate3d(0, 200px, 0);
+                transform: translate3d(0, 200px, 0);
+            }
+        }
+  </style>
+    <div class="LoaderWrapper">
+      <div class="ball"></div>
+      </div>
+
+      <!--<div class="LoaderContent">
+		<div class="loader" style="position: absolute; top:60%; left: 36%;"></div>
+      </div>
+    </div>-->
+
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js');
+    </script>
+  </body>
+</html>
