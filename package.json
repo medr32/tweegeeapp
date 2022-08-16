@@ -1,6 +1,6 @@
 {
 	"name": "tweegee-world",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "tweegee world",
 	"productName": "Tweegee World - عالم شبلول",
 	"main": "main.js",
@@ -129,10 +129,10 @@
 				"!**/{appveyor.yml,.travis.yml,circle.yml}",
 				"!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
 			],
-			"icon": "icons/windows/icon.ico"
+			"icon": "coco.ico"
 		}
 	},
-	"author": "Jehad R. Khuzaie <Khujehad@gmail.net> (https://fb.com/techn7ical)",
+	"author": "Mohamed Ikbal (medikbalforreal@gmail.com)",
 	"license": "CC0-1.0",
 	"devDependencies": {
 		"electron": "^11.5.0",

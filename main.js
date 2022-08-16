@@ -336,6 +336,21 @@ autoUpdater.on('update-available', (updateInfo) => {
 	   
 	}
 );
+autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+  const dialogOpts = {
+    type: 'info',
+    buttons: ['Restart', 'Later'],
+    title: 'Application Update',
+    message: process.platform === 'win32' ? releaseNotes : releaseName,
+    detail:
+      'A new version has been downloaded. Restart the application to apply the updates.',
+  }
+
+  dialog.showMessageBox(dialogOpts).then((returnValue) => {
+    if (returnValue.response === 0) autoUpdater.quitAndInstall()
+  })
+})
+
 
 ipcMain.on('restart_app', () => {
   autoUpdater.quitAndInstall();
@@ -432,13 +447,12 @@ ipcMain.on('load:data', (event, mute, theme) => {
 	mainWindow.webContents.send('theme', nativeTheme.themeSource);
 	
 });
+ipcMain.on('app_version', (event) => {
+  event.sender.send('app_version', { version: app.getVersion() });
+});
 
-autoUpdater.on('update-available', () => {
-  mainWindow.webContents.send('update_available');
-});
-autoUpdater.on('update-downloaded', () => {
-  mainWindow.webContents.send('update_downloaded');
-});
+
+
 //system tray icon menu//
 
 /**
