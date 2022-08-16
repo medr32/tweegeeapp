@@ -315,10 +315,7 @@ function createWindow () {
   Menu.setApplicationMenu(createMenu());
   //mainWindow.loadFile(path.join(__dirname, 'index.html'));
   mainWindow.loadURL('https://www.cocolani.net/ch/main/index.php')
-  //mainWindow.loadURL('https://m9.rocks/med/sh.html')
-  mainWindow.once('ready-to-show', () => {
-    autoUpdater.checkForUpdatesAndNotify();
-  });
+  autoUpdater.checkForUpdates()
   
   
   
@@ -447,15 +444,7 @@ ipcMain.on('load:data', (event, mute, theme) => {
 	mainWindow.webContents.send('theme', nativeTheme.themeSource);
 	
 });
-ipcMain.on('app_version', (event) => {
-  event.sender.send('app_version', { version: app.getVersion() });
-});
 
 
 
-//system tray icon menu//
-
-/**
- * End of Auto Updater part
- */
 
