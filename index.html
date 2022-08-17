@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title>Electron Auto Update Example</title>
+  <title>nothing here ..</title>
   <style>
     body {
       box-sizing: border-box;
@@ -13,22 +13,8 @@
   </style>
 </head>
 <body>
-  <h1>Electron Auto Update Example</h1>
-  <p id="version"></p>
-  <form>
-    <input id='username'>Username</input>
-    <button type="submit">hh</button>
-  </form>
-  <script>
-    const { ipcRenderer } = require('electron');
-    const version = document.getElementById('version');
-    
-    ipcRenderer.send('app_version');
-    ipcRenderer.on('app_version', (event, arg) => {
-      ipcRenderer.removeAllListeners('app_version');
-      version.innerText = 'Version ' + arg.version;
-    });
-  </script>
+  <h1>nothing here..</h1>
+
 </body>
     <script src="./renderer.js"></script>
     <script src="main.js"></script>

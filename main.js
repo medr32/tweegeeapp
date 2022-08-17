@@ -220,7 +220,7 @@ function createLoadingScreen(){
                 },
                 {
                     label: 'Discord',
-                    click: () => mainWindow.loadURL('https://discord.gg/zqbkhsUZek')
+                    click: () => mainWindow.loadURL('https://discord.gg/vCUVwfP2VH')
                 },
                 {
                   label: 'App Version',
@@ -244,7 +244,7 @@ function createLoadingScreen(){
         }));
         fsmenu.append(new MenuItem({
             'label': 'Discord',
-            click: () => shell.openExternal('https://discord.gg/zqbkhsUZek',)
+            click: () => shell.openExternal('https://discord.gg/vCUVwfP2VH',)
         }));
         fsmenu.append(new MenuItem({
             label: 'Zoom In/Out',
@@ -275,7 +275,7 @@ function createLoadingScreen(){
             type: "info",
             buttons: ["Ok"],
             title: "App Version",
-            message: app.getVersion()
+            message: 'Current Version is ' + app.getVersion()
             });
      
       
@@ -324,34 +324,27 @@ function createWindow () {
 
 };
 autoUpdater.on('update-available', (updateInfo) => {
-	    dialog.showMessageBox({
-		  type: "info",
-		  buttons: ["Ok"],
-		  title: "Update Available",
-		  message: "There is a new version available (v" + updateInfo.version + "). It will be installed when the app closes."
-	    });
-	   
-	}
+  dialog.showMessageBox({
+  type: "info",
+  buttons: ["Ok"],
+  title: "Update Available",
+  message: "There is a new version available (v" + updateInfo.version + "). It will be installed automatically."
+  });
+ 
+}
 );
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
-  const dialogOpts = {
-    type: 'info',
-    buttons: ['Restart', 'Later'],
-    title: 'Application Update',
-    message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail:
-      'A new version has been downloaded. Restart the application to apply the updates.',
-  }
+dialog.showMessageBox({
+type: "info",
+buttons: ["Ok"],
+title: "Update Downloaded",
+message: "Update has been installed successfully."
+});
+autoUpdater.quitAndInstall();
 
-  dialog.showMessageBox(dialogOpts).then((returnValue) => {
-    if (returnValue.response === 0) autoUpdater.quitAndInstall()
-  })
 })
 
 
-ipcMain.on('restart_app', () => {
-  autoUpdater.quitAndInstall();
-}); 
 
    
 
