@@ -190,7 +190,7 @@ function createLoadingScreen(){
             label: "عالم شبلول - Tweegee",
             submenu: [
                 {
-                    label: 'Zoom In/Out',
+                    label: 'Full Screen',
                     accelerator: 'CmdOrCtrl+F',
                     click: () => {
                         mainWindow.setFullScreen(!mainWindow.isFullScreen());
@@ -247,10 +247,11 @@ function createLoadingScreen(){
             click: () => shell.openExternal('https://discord.gg/vCUVwfP2VH',)
         }));
         fsmenu.append(new MenuItem({
-            label: 'Zoom In/Out',
+            label: 'Full Screen',
             accelerator: 'CmdOrCtrl+F',
             click: () => {
                 mainWindow.setFullScreen(!mainWindow.isFullScreen());
+                
             }
         }));
         fsmenu.append(new MenuItem({
@@ -338,11 +339,12 @@ dialog.showMessageBox({
 type: "info",
 buttons: ["Ok"],
 title: "Update Downloaded",
-message: "Update has been installed successfully."
+message: "Update has been installed successfully, the app will restart now to apply the updates."
 });
-autoUpdater.quitAndInstall();
+setTimeout(() => {autoUpdater.quitAndInstall();}, 5000);
 
 })
+
 
 
 
