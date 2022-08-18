@@ -90,7 +90,7 @@ function getLocation(username){
 			
 		});
 	}).on('error', function(err) {
-		alert(err);
+		//alert(err);
 	});
 	}
 
@@ -226,11 +226,7 @@ function createLoadingScreen(){
                   label: 'App Version',
                   click: () => app.getVersion()
                 },
-                {
-                  label: 'Check for updates',
-                  click: () => autoUpdater.checkForUpdates()
-                },
-
+                
                 {
                   label: '',
         click: () => clearCacheAndReload()
