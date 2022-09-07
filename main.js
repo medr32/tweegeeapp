@@ -219,9 +219,13 @@ function createLoadingScreen(){
                     }
                 },
                 {
-                    label: 'Discord',
-                    click: () => mainWindow.loadURL('https://discord.gg/vCUVwfP2VH')
-                },
+                  label: 'Discord',
+                  click: () => mainWindow.loadURL('https://discord.gg/vCUVwfP2VH')
+              },
+              {
+                label: 'Store',
+                click: () => mainWindow.loadURL('https://www.cocolani.net/store')
+            },
                 {
                   label: 'App Version',
                   click: () => app.getVersion()
@@ -239,9 +243,13 @@ function createLoadingScreen(){
             click: () => shell.openExternal('https://www.cocolani.net/')
         }));
         fsmenu.append(new MenuItem({
-            'label': 'Discord',
-            click: () => shell.openExternal('https://discord.gg/vCUVwfP2VH',)
-        }));
+          'label': 'Discord',
+          click: () => shell.openExternal('https://discord.gg/vCUVwfP2VH',)
+      }));
+      fsmenu.append(new MenuItem({
+        'label': 'Store',
+        click: () => shell.openExternal('https://www.cocolani.net/store',)
+    }));
         fsmenu.append(new MenuItem({
             label: 'Full Screen',
             accelerator: 'CmdOrCtrl+F',
