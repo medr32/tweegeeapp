@@ -189,6 +189,7 @@ function createLoadingScreen(){
         fsmenu.append(new MenuItem({
             label: "عالم شبلول - Tweegee",
             submenu: [
+              
                 {
                     label: 'Full Screen',
                     accelerator: 'CmdOrCtrl+F',
@@ -274,6 +275,21 @@ function createLoadingScreen(){
           }
       }));
       fsmenu.append(new MenuItem({
+        label: 'Zoom In',
+        role: 'zoomIn'
+        
+    }));
+    fsmenu.append(new MenuItem({
+      label: 'Zoom Out',
+      role: 'zoomOut'
+      
+  }));
+  fsmenu.append(new MenuItem({
+    label: 'Reset Zoom Level',
+    role: 'resetZoom'
+    
+}));
+      fsmenu.append(new MenuItem({
         label: 'App Version',
         click: () => {
           dialog.showMessageBox({
@@ -287,6 +303,8 @@ function createLoadingScreen(){
             
         }
     }));
+   
+ 
     fsmenu.append(new MenuItem({
       label: '',
       click: () => clearCacheAndReload()
