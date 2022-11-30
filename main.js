@@ -1,3 +1,5 @@
+//Made with love by @medikb_al
+
 const {app, dialog, BrowserWindow, Menu, MenuItem, ipcMain, ipcRenderer, nativeTheme, globalShortcut, session} = require('electron')
 const shell = require('electron').shell;
 const path = require('path')
@@ -11,7 +13,6 @@ if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
       myWindow.focus()
@@ -142,25 +143,22 @@ app.commandLine.appendSwitch("disable-http-cache");
 
 
 /**
- * Activates Discord Rich Presence
+ 
  * @returns {void}
  */
 
 /**
- * creates the loading screen
+ 
  * @returns {void}
  */
 let loadingScreen;
 function createLoadingScreen(){
-  /// create a browser mainWindow
+
   
   loadingScreen = new BrowserWindow({
-      /// define width and height for the mainWindow
       width: 200,
       height: 300,
-      /// remove the mainWindow frame, so it will become a frameless mainWindow
       frame: false,
-      /// and set the transparency, to remove any mainWindow background color
       transparent: true,
     }
   );
@@ -180,7 +178,7 @@ function createLoadingScreen(){
   });
 };
 /**
- * Creates the Menu Bar
+ * 
  * @returns {Menu}
  */
  function createMenu() { 
@@ -221,7 +219,7 @@ function createLoadingScreen(){
                 },
                 {
                   label: 'Discord',
-                  click: () => mainWindow.loadURL('https://discord.gg/vCUVwfP2VH')
+                  click: () => mainWindow.loadURL('https://discord.gg/Bs62eqDYxr')
               },
               {
                 label: 'Store',
@@ -245,7 +243,7 @@ function createLoadingScreen(){
         }));
         fsmenu.append(new MenuItem({
           'label': 'Discord',
-          click: () => shell.openExternal('https://discord.gg/vCUVwfP2VH',)
+          click: () => shell.openExternal('https://discord.gg/Bs62eqDYxr',)
       }));
       fsmenu.append(new MenuItem({
         'label': 'Store',
@@ -321,7 +319,6 @@ let mainWindow;
 
 
 function createWindow () {
-  // Create the browser mainWindow.
   mainWindow = new BrowserWindow({
     useContentSize: true,
     show: false,
